@@ -81,7 +81,8 @@ namespace TestProject_MostActiveFriend
             eList.UserResponse[0].first_name = "Павел";
             eList.UserResponse[0].last_name = "Дуров";
             Debug.Assert(userListActual != null, "userListActual != null");
-            Assert.AreEqual(expected: eList, actual: userListActual);
+            Assert.AreEqual(expected: eList.UserResponse[0].first_name, actual: userListActual.UserResponse[0].first_name);
+            Assert.AreEqual(expected: eList.UserResponse[0].last_name, actual: userListActual.UserResponse[0].last_name);
             //
             // TODO: добавьте здесь логику теста
             //
