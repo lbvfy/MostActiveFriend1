@@ -16,14 +16,15 @@ namespace MostActiveFriend
             return "0";
         }
 
-        public static string GetUser(int userId)
+        public static string GetUser(long userId)
         {
             return Get(String.Format("https://api.vk.com/method/users.get?user_ids={0}", userId));
         }
 
-        public int GetPostsCount(int idOwnerWall)
+        public static string GetPosts(int idOwnerWall)
         {
-            return 0;
+            return Get(String.Format("https://api.vk.com/method/wall.get?owner_id={0}&filter=owner", idOwnerWall));
+
         }
 
         public static string GetFriends(int userId)

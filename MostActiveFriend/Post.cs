@@ -8,7 +8,13 @@ namespace MostActiveFriend
     public class Post
     {
 
-        public int from_id { get; set; }
-        public int to_id { get; set; }
+        public long from_id { get; set; }
+        public long to_id { get; set; }
+
+        public Post()
+        {
+            from_id = new long();
+            to_id = new long();
+        }
     }
 }

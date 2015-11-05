@@ -25,7 +25,7 @@ namespace MostActiveFriend
         private string _accessToken;
         private int _userId;
         private int _max;
-        private int _mostActiveFriendId;
+        private long _mostActiveFriendId;
         Form _answer;
         private int _appId;
 
@@ -43,13 +43,10 @@ namespace MostActiveFriend
         {
            
             FriendList friendList = MyParseJSON.ParseFriendList(VkChaterer.GetFriends(_userId));
-
-            
+            //находим самого активного друга по постам           
             foreach (FriendResponse response in friendList.response)
             {
-               string jsonStr = VkChaterer.Get(String.Format("https://api.vk.com/method/wall.get?owner_id={0}&filter=owner", response.user_id));
-               
-                FriendWall friendWall = MyParseJSON.ParseFriendWall(jsonStr);
+                FriendWall friendWall = MyParseJSON.ParseFriendWall(VkChaterer.GetPosts(response.user_id));
                 friendWall.user_id = response.user_id;
                if (_max < friendWall.count)
                 {

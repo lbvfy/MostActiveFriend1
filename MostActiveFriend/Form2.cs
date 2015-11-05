@@ -21,7 +21,7 @@ namespace MostActiveFriend
 {
     public partial class Form2 : Form
     {
-        public Form2(int userId, int postsValue)
+        public Form2(long userId, int postsValue)
         {
             InitializeComponent();
          

@@ -87,6 +87,24 @@ namespace TestProject_MostActiveFriend
             // TODO: добавьте здесь логику теста
             //
         }
+        [TestMethod]
+        public void TestParseFriendWall()
+        {
+            string input = "{\"response\":[258,{\"id\":2300,\"from_id\":2760562,\"to_id\":2760562}]}";
+          //  "{\"response\":[258,{\"id\":2300,\"from_id\":2760562,\"to_id\":2760562}]}"
+            FriendWall userListActual = MyParseJSON.ParseFriendWall(input);
+            FriendWall eList = new FriendWall();
+            eList.count = 258;
+            eList.postList.Add(new Post());
+            eList.postList[0].from_id = 2760562;
+            eList.postList[0].to_id = 2760562;
+            Debug.Assert(userListActual != null, "userListActual != null");
+            Assert.AreEqual(expected: eList.postList[0].from_id, actual: userListActual.postList[0].from_id);
+            Assert.AreEqual(expected: eList.postList[0].to_id, actual: userListActual.postList[0].to_id);
+            //
+            // TODO: добавьте здесь логику теста
+            //
+        }
 
 
     }
